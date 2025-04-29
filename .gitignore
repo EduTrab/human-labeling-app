@@ -1,0 +1,12 @@
+# Streamlit cache and Python cache
+__pycache__/
+*.pyc
+.streamlit/config.toml
+
+# Local dynamic data folders
+data/saved_images/
+data/tmp_uploads/
+data/human_created/
+
+# Secrets file (if local)
+.secrets.toml
