@@ -1,3 +1,5 @@
+# app.py
+
 import streamlit as st
 from configs.config import HUMAN_CREATED_DIR, TMP_UPLOAD_DIR
 from utils.session.session_state import initialize_session_state
@@ -7,10 +9,15 @@ from logic.get_images import handle_get_images
 from ui.batch_ui import render_batch_form
 from ui.username_gate import ask_username
 
-
 def main():
     initialize_session_state()
-    ask_username()
+
+    # 1. If user not logged in, ask username first
+    if "username" not in st.session_state or st.session_state.username is None:
+        ask_username()
+        return  # stop here until user fills name/surname
+
+    # 2. User logged in, show full app
     render_intro()
     render_sidebar_controls()
     handle_get_images()
@@ -23,6 +30,5 @@ def main():
     else:
         st.info("No images yet. Choose source & hit **Get Images**.")
 
-
-if __name__=="__main__":
+if __name__ == "__main__":
     main()
