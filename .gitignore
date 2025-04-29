@@ -10,3 +10,4 @@ data/human_created/
 
 # Secrets file (if local)
 .secrets.toml
+.streamlit/secrets.toml
