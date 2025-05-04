@@ -7,9 +7,9 @@ import streamlit as st
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from utils.streetview.fetch import (
-    search_and_download_random,
+    search_and_download_random_mly,
     generate_city_perturbations,
-)
+)e
 from utils.common.index_utils import get_next_idx
 from configs.config import TMP_UPLOAD_DIR
 
@@ -58,7 +58,7 @@ def download_images():
         logger.info(f"Downloading {N} images from {src} source.")
         with ThreadPoolExecutor(max_workers=min(5, N)) as exe:
             futures = [
-                exe.submit(search_and_download_random, idx_start+i, coords_list[i])
+                exe.submit(search_and_download_random_mly, idx_start+i, coords_list[i])
                 for i in range(N)
             ]
             for fut in as_completed(futures):
