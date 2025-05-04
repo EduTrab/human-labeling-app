@@ -243,7 +243,18 @@ def search_and_download_random_maps(idx, coords=None, max_retries=10):
             time.sleep(0.2)
     return None, None
 
-
+def generate_city_perturbations(base_lat, base_lon, n, radius_km=1.0):
+     """
+     Return n random (lat,lon) within +/- radius_km of (base_lat, base_lon).
+     """
+     max_off = radius_km * 0.009   # ~ degrees per km
+     return [
+         (
+             base_lat + random.uniform(-max_off, max_off),
+             base_lon + random.uniform(-max_off, max_off),
+         )
+         for _ in range(n)
+     ]
 
 '''
 import time
