@@ -6,7 +6,7 @@ import streamlit as st
 from configs.config import SAVE_DIR
 from data.cities_coordinates import city_coordinates
 from streetview import search_panoramas, get_panorama_meta, get_streetview
-from utils.common.index_utils import random_location
+ from utils.streetview.geocode import random_location 
 
 
 
