@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from utils.streetview.fetch import (
     search_and_download_random_mly,
     generate_city_perturbations,
-)e
+)
 from utils.common.index_utils import get_next_idx
 from configs.config import TMP_UPLOAD_DIR
 
